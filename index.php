@@ -64,9 +64,14 @@
 
 
     
-    <dl>
-      <dt>LTI Call Data</dt><dd><pre><?php print_r($lti->calldata());?></pre></dd>
-    </dl>
+    <!-- DELETE THE FOLLOWING ON RELEASE -->
+        <button type="button" class="lti_call_data_button">LTI Call Data</button>
+        <div class="lti_call_data" >
+            <dl>
+            <dd><pre><?php print_r($lti->calldata());?></pre></dd>
+            </dl>
+        </div>
+    <!-- /////////////////////////////// --> 
 
 </div>
 <script type="text/javascript" src="build/js/app.js"></script>

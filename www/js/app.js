@@ -30,5 +30,22 @@ $(document).ready(function(){
     console.log(results);
 
 
+    //////////// DELETE FOLLOWING ON RELEASE ////////////
+
+    var call_data_shown = false;
+    $(".lti_call_data_button").click(function(){
+
+        if(call_data_shown){
+            $(".lti_call_data").hide();
+            call_data_shown = false;
+        }else{
+            $(".lti_call_data").show();
+            call_data_shown = true;
+        }
+
+    });
+
+    /////////////////////////////////////////////////////
+
 });
 
