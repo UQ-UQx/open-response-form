@@ -10,12 +10,12 @@ module.exports = function(grunt){
         browserify: {
             init:{
                 files: {
-                  'build/js/app.js': ['www/js/app.js']
+                  'build/js/app.js': ['www/js/index.js']
                 }
             },
             run: {
                 files: {
-                  'build/js/app.js': ['www/js/app.js']
+                  'build/js/app.js': ['www/js/index.js']
                 },
                 options:{
                     watch: true,
@@ -24,7 +24,7 @@ module.exports = function(grunt){
             }
         },
         watch:{
-            
+
             scss_bundle:{
                 files:["www/sass/**/*.scss"],
                 tasks:["sass"]

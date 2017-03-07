@@ -1,4 +1,4 @@
-<?php require_once('inc/header.php'); 
+<?php require_once('inc/header.php');
 
 
     // Assign default values for all possible LTI Variables
@@ -12,11 +12,11 @@
 
 
 
-    // LTI Variables are now attached to $ltivars object, 
-    // IMPORTANT: ensure that all possible LTI variables are assinged a default value above 
+    // LTI Variables are now attached to $ltivars object,
+    // IMPORTANT: ensure that all possible LTI variables are assinged a default value above
     $ltivars = $lti->calldata();
 
-    // Check to see if the lti has provided values for the possible variables, 
+    // Check to see if the lti has provided values for the possible variables,
     // if yes then assign the new value to the variables.
     if(isset($ltivars{'custom_lti_variable_A'})){
         $lti_variable_A = $ltivars{'custom_lti_variable_A'};
@@ -44,12 +44,12 @@
 
     $_VARIABLE_A = "<?php echo $lti_variable_A ?>";
     $_VARIABLE_B = "<?php echo $lti_variable_B ?>";
-    // Variables that are numbers, can be converted to their proper types at this level 
+    // Variables that are numbers, can be converted to their proper types at this level
     $_VARIABLE_C = parseInt("<?php echo $lti_variable_C ?>");
-    // Variables that are lists, can be converted to an object of items at this level 
+    // Variables that are lists, can be converted to an object of items at this level
     $_VARIABLE_D = JSON.parse('<?php echo json_encode($lti_variable_D); ?>');
 
-    // check your console to see if the values are printed correctly with their appropriate types 
+    // check your console to see if the values are printed correctly with their appropriate types
     console.log("LTI variables: ", $_VARIABLE_A, $_VARIABLE_B, $_VARIABLE_C, $_VARIABLE_D);
 
 
@@ -63,7 +63,7 @@
     <p>If you need any other external libraries, check to see if it exists on the NPM registry and is being maintained</p>
 
 
-    
+
     <!-- DELETE THE FOLLOWING ON RELEASE -->
         <button type="button" class="lti_call_data_button">LTI Call Data</button>
         <div class="lti_call_data" >
@@ -71,7 +71,7 @@
             <dd><pre><?php print_r($lti->calldata());?></pre></dd>
             </dl>
         </div>
-    <!-- /////////////////////////////// --> 
+    <!-- /////////////////////////////// -->
 
 </div>
 <script type="text/javascript" src="build/js/app.js"></script>
