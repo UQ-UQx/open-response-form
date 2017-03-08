@@ -7,7 +7,7 @@ global.app = require("./app.js");
 global.state = require("./state.js");
 
 // Any special library you want to use can be installed through npm and imported into the specifc files.
-// Most of these may not need variables attached in order to use them, see their documentation.
+// Most of these may not need variables attached in order to use them, see their doccaumentation.
 require('bootstrap');
 require('twbs-pagination');
 //require("blueimp-file-upload");
@@ -21,21 +21,13 @@ require('twbs-pagination');
 $(document).ready(function(){
 
 
+  if($_initState){
+    state.setState({"state":$_initState}); //arg should be an object
+  }else{
+    $_initState = state.getDefaultState();
+  }
 
-
-
-//  state.update("blocks", [{}]);
-
-
-  app.init({
-
-    "initalState":{"name":"state"}
-
-
-  })
-
-
-
+  app.init();
 
 
 

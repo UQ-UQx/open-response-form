@@ -1,8 +1,20 @@
+var block = require("./block.js");
+var Handlebars = require("handlebars");
+//var interaction = require("./interaction.js");
+var input_options = [
+
+  "Slider",
+  "Text Box",
+  "Text Line",
+  "Multichoice"
+
+
+];
 module.exports = {
 
   init:function(options){
 
-    console.log(options);
+    generateExistingBlocks(options);
 
 
   }
@@ -11,40 +23,36 @@ module.exports = {
 
 }
 
-/**
+
+function generateExistingBlocks(options){
 
 
+  console.log(state.getFromStateWithKey("blocks"));
 
-*/
+  var currentBlocks = state.getFromStateWithKey("blocks");
 
-/**
+  Handlebars.registerHelper("generateBlock", function(block_data) {
 
-blocks:[
+      return block.generate(block_data);
 
-  {
+  });
 
-  "id":randomHash
-  name:nameOfBlock
-  question: html of the Question
-  input:{
+  var source = "<div class='blocks_container'>"+
 
-    inputType: textbox|textline|...
-    height: px height in integerformat
-    options:{
+                '<ul class="blocks_list">'+
+                '{{#each .}}'+
+                  '<li class="blocks">{{{generateBlock .}}}</li>'+
+                '{{/each}}'+
+                '</ul>'+
 
+               "</div>";
 
-    }
+  var template = Handlebars.compile(source);
 
+  var result = template(currentBlocks);
 
-  }
-  editing: true|false (change view based on this)
-  position: 3 (recalculates and updates all positions when user finishes changeing position)
+  $("#app_container").html(result);
 
+//  interaction.init();
 
 }
-
-
-
-
-]
-**/

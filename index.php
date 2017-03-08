@@ -49,6 +49,7 @@
     // Variables that are lists, can be converted to an object of items at this level
     $_VARIABLE_D = JSON.parse('<?php echo json_encode($lti_variable_D); ?>');
 
+    $_initState = null;
     // check your console to see if the values are printed correctly with their appropriate types
     console.log("LTI variables: ", $_VARIABLE_A, $_VARIABLE_B, $_VARIABLE_C, $_VARIABLE_D);
 
@@ -56,13 +57,9 @@
 </script>
 <div class="content">
 
-    <h1>Welcome to the LTI base module</h1>
-
-    <p>This is an LTI boiler plate built on PHP</p>
-    <p>You will find that this version now includes the usage of NPM packages, e.g. Browserify, Jquery, Bootstrap ... etc.</p>
-    <p>If you need any other external libraries, check to see if it exists on the NPM registry and is being maintained</p>
 
 
+    <div id="app_container"></div>
 
     <!-- DELETE THE FOLLOWING ON RELEASE -->
         <button type="button" class="lti_call_data_button">LTI Call Data</button>
