@@ -34,7 +34,7 @@ module.exports = function(grunt){
                 tasks:["uglify:js"]
             },
             dev_reload:{
-                files:["build/js/app.js", "build/css/app.css", "*.php", "**/*.php"],
+                files:["build/js/app.js", "build/css/app.min.css", "*.php", "**/*.php"],
                 options: {
                   livereload: {
                     host: 'localhost',

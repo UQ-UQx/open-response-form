@@ -71,7 +71,7 @@ module.exports = {
           "target":20
         }
       },
-      "editing": false,
+      "editing": true,
       "position": 1
 
     };

@@ -1,6 +1,6 @@
 var block = require("./block.js");
 var Handlebars = require("handlebars");
-//var interaction = require("./interaction.js");
+var interaction = require("./interaction.js");
 var input_options = [
 
   "Slider",
@@ -12,11 +12,21 @@ var input_options = [
 ];
 module.exports = {
 
-  init:function(options){
+  init:function(){
 
-    generateExistingBlocks(options);
+    generateExistingBlocks();
 
 
+  },
+  addBlock:function(){
+
+
+
+  },
+  removeBlock:function(){
+
+
+    
   }
 
 
@@ -24,10 +34,7 @@ module.exports = {
 }
 
 
-function generateExistingBlocks(options){
-
-
-  console.log(state.getFromStateWithKey("blocks"));
+function generateExistingBlocks(){
 
   var currentBlocks = state.getFromStateWithKey("blocks");
 
@@ -41,11 +48,11 @@ function generateExistingBlocks(options){
 
                 '<ul class="blocks_list">'+
                 '{{#each .}}'+
-                  '<li class="blocks">{{{generateBlock .}}}</li>'+
+                  '<li class="blocks_item">{{{generateBlock .}}}</li>'+
                 '{{/each}}'+
                 '</ul>'+
 
-               "</div>";
+               "</div><button class='add_block'>Add Block</button>";
 
   var template = Handlebars.compile(source);
 
@@ -53,6 +60,6 @@ function generateExistingBlocks(options){
 
   $("#app_container").html(result);
 
-//  interaction.init();
+  interaction.watchApp();
 
 }
